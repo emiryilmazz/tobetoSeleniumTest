@@ -12,7 +12,6 @@ from constants.globalConstants import *
 from selenium.webdriver.remote.webelement import WebElement 
 
 
-
 def verileriKullanJson(dosya_yolu):
         with open(dosya_yolu, "r", encoding='utf-8') as dosya:
             data = json.load(dosya)
@@ -52,6 +51,14 @@ class Test_Demo:
             password = sheet.cell(i,2).value
             data.append((username,password))
         return data
+    
+    # def readInvalidDataFromJSON(json_file_path):
+    #  with open(json_file_path, 'r') as file:
+    #     data = json.load(file)
+    #     valid_users = data.get('test_valid_login', [])
+    #     return [(user.get('username'), user.get('password')) for user in valid_users]
+    
+    #  @pytest.mark.parametrize("username, password", readInvalidDataFromJSON("C:/Users/Admin/Desktop/tobetoSeleniumTest/PyTestOdev/data/veri.json"))
     
     
     def waitForElementVisible(self,driver,locator,timeout=3):
